@@ -1,0 +1,165 @@
+@use "./index.scss" as *;
+
+// @mixin color-list-marker($color: #000) {
+//   list-style: none;
+//   padding-left: 2rem;
+
+//   li {
+//     position: relative;
+//     padding-left: 1.25rem;
+
+//     &::marker {
+//       color: $color;
+//       font-weight: bold;
+//     }
+
+//     /* Fallback for older browsers that don't support ::marker */
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       left: 0;
+//     }
+//   }
+// }
+
+ol,
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-50;
+  padding-left: $spacing-150;
+  li {
+    padding-left: $spacing-150;
+    strong {
+      font-weight: $font-weight-bold;
+    }
+  }
+  li::marker {
+    font-weight: $font-weight-bold;
+    color: $color-brown-800;
+  }
+  // @include color-list-marker($color-brown-800);
+}
+
+@mixin display($gap: $spacing-150) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+/* font: [style] [variant] [weight] [size]/[line-height] [family]; */
+@mixin font-desc() {
+  font-size: $font-size-normal;
+  font-weight: $font-weight-normal;
+  font-family: $font-family-primary;
+  color: $color-stone-600;
+}
+
+@mixin font-heading($weight, $size, $color, $family: $font-family-secondary) {
+  font-size: $size;
+  font-weight: $weight;
+  font-family: $family;
+  color: $color;
+}
+
+.recipe {
+  width: clamp(20rem, 100%, 50rem);
+  background-color: $color-white;
+  @include font-desc();
+  &-banner {
+    &-img {
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      object-fit: cover;
+    }
+  }
+  &-content {
+    padding: $spacing-200;
+    @include display();
+
+    &-title {
+      @include font-heading(
+        $font-weight-bolder,
+        $font-size-p1,
+        $color-stone-900
+      );
+    }
+    &-prep-time {
+      @include display($spacing-100);
+      background-color: $color-rose-50;
+      padding: $spacing-150;
+      border-radius: 10px;
+      &-title {
+        @include font-heading(
+          $font-weight-bold,
+          $font-size-p3,
+          $color-rose-800,
+          $font-family-primary
+        );
+      }
+      li::marker {
+        color: $color-rose-800;
+      }
+    }
+    &-ingredients {
+      @include display();
+      &-title {
+        @include font-heading(
+          $font-weight-bolder,
+          $font-size-p2,
+          $color-brown-800
+        );
+      }
+    }
+    &-instructions {
+      @include display();
+      &-title {
+        @include font-heading(
+          $font-weight-bolder,
+          $font-size-p2,
+          $color-brown-800
+        );
+      }
+    }
+    &-nutrition {
+      @include display();
+      &-title {
+        @include font-heading(
+          $font-weight-bolder,
+          $font-size-p2,
+          $color-brown-800
+        );
+      }
+      table {
+        border-collapse: collapse;
+        tr {
+          border-bottom: 1px solid $color-stone-150;
+          padding: $spacing-100;
+          td {
+            padding: $spacing-50 $spacing-50 $spacing-50 $spacing-200;
+          }
+          td:last-child {
+            font-weight: $font-weight-bold;
+            color: $color-brown-800;
+          }
+        }
+        tr:last-child {
+          border-width: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-mobile) {
+  .recipe {
+    margin: $spacing-400 clamp($spacing-100, 10%, $spacing-400);
+    border-radius: 20px;
+    &-banner {
+      padding: $spacing-200 $spacing-200 0 $spacing-200;
+      &-img {
+        border-radius: 10px;
+      }
+    }
+  }
+}
