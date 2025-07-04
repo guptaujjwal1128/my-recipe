@@ -1,6 +1,6 @@
 # Frontend Mentor - My Recipe solution
 
-This is a solution to the [My Recipe challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/my-recipe-ckPaj01IcS). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [My Recipe challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -24,7 +24,8 @@ This is a solution to the [My Recipe challenge on Frontend Mentor](https://www.f
 
 ### Screenshot
 
-![](./screenshot.png)
+![](./screenshot_1.png)
+![](./screenshot_2.png)
 
 ### Links
 
@@ -77,12 +78,15 @@ tsconfig*.json    # TypeScript configs
 
 - Semantic HTML5 markup
 - Flexbox
+- Responsive Design
+- Accesibility
 - [Vite](https://vite.dev/) - Module Bundler
 - [React + Typescript](https://reactjs.org/)
 
 ### What I learned
 
 - HTML structuring
+- Responsive Design
 - Accessibility
 
 ### Continued development
